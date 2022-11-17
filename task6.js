@@ -1,12 +1,11 @@
 let validPin = (pin) => {
   let isNum = () => {
-    
-    return (
-      !isNaN(+pin) &&
-      typeof +pin === "number" &&
-      !pin.includes(".") &&
-      !pin.includes("-")
-    );
+    for (const letter of pin) {
+        if (Number.isNaN(+letter)) {
+            return false;
+        }
+    }
+    return true
   };
   if (
     isNum() &&
